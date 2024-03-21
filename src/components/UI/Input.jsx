@@ -13,6 +13,7 @@ function Input({
       value={value}
       type="text"
       onChange={onChange}
+      placeholder={placeholder}
       className={`${className} ${styles.Input} ${imageClass} ${
         imagePosition == 'left' ? styles.Input_imgLeft : ''
       }`}

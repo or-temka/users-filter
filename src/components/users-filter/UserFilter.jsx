@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 function UserFilter() {
   const [users, setUsers] = useState([])
   const [loading, setLoading] = useState(true)
+  const [userSearch, setUserSearch] = useState('')
 
   useEffect(() => {
     fetch('https://5ebbb8e5f2cfeb001697d05c.mockapi.io/users')
@@ -18,9 +19,14 @@ function UserFilter() {
   return (
     <div className={styles.UserFilter}>
       <h1 className="h1">Список пользователей</h1>
-      <SearchUserMenu />
+      <SearchUserMenu
+        userSearch={userSearch}
+        setUserSearch={(text) => {
+          setUserSearch(text)
+        }}
+      />
       <Filter />
-      <Users users={users} loading={loading} />
+      <Users userSearch={userSearch} users={users} loading={loading} />
     </div>
   )
 }

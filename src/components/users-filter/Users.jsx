@@ -5,15 +5,25 @@ import styles from './Users.module.css'
 
 const MAX_PAGE_USERS = 5
 
-function Users({ users, loading }) {
+function Users({ users, loading, userSearch }) {
+  let filteredUsers = [...users]
+
+  if (userSearch) {
+    filteredUsers = [...users].filter(
+      (user) =>
+        user.username.toLowerCase().includes(userSearch.toLowerCase()) ||
+        user.email.toLowerCase().includes(userSearch.toLowerCase())
+    )
+  }
+
   const [nowPage, setNowPage] = useState(1)
   let maxPageElementsNum = nowPage * MAX_PAGE_USERS
   let minPageElementsNum = maxPageElementsNum - MAX_PAGE_USERS
-  const maxPages = Math.ceil(users.length / MAX_PAGE_USERS)
+  const maxPages = Math.ceil(filteredUsers.length / MAX_PAGE_USERS)
 
   if (nowPage > maxPages && maxPages != 0) {
     setNowPage(maxPages)
-  } else if (nowPage < 1){
+  } else if (nowPage < 1) {
     setNowPage(1)
   }
 
@@ -44,7 +54,7 @@ function Users({ users, loading }) {
         {loading ? (
           <span className="loader"></span>
         ) : (
-          users.map((user, index) => {
+          filteredUsers.map((user, index) => {
             if (index >= minPageElementsNum && index < maxPageElementsNum) {
               return <User {...user} key={user.username} />
             }
