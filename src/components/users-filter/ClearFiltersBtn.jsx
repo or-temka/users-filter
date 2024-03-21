@@ -1,7 +1,12 @@
+import { Link } from 'react-router-dom'
+import styles from './ClearFiltersBtn.module.css'
 
 function ClearFiltersBtn() {
   return (
-    <div>ClearFiltersBtn</div>
+    <Link className={styles.ClearFiltersBtn}>
+      <div className={styles.ClearFiltersBtn__svg}></div>
+      <span className={styles.ClearFiltersBtn__text}>Очистить фильтр</span>
+    </Link>
   )
 }
 

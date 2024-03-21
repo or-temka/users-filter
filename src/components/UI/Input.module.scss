@@ -1,0 +1,28 @@
+.Input {
+  padding: 9px;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+  background-color: #ECEFF0;
+  border-radius: 4px;
+  color: var(--names-tablet);
+  font-weight: 500;
+
+  &:hover {
+    background-color: rgb(229, 232, 233);
+  }
+
+  &:focus {
+    background-color: #ECEFF0;
+  }
+
+  &_imgLeft {
+    background-position: left 5px center;
+    padding-left: 31px;
+  }
+
+  &_imgRight {
+    background-position: right 5px center;
+    padding-right: 31px;
+  }
+}

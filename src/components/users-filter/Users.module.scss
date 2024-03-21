@@ -4,4 +4,69 @@
   padding: 16px;
   display: flex;
   flex-direction: column;
+
+  &__tableHeader {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+
+  &__headerItem {
+    width: 29%;
+    margin-right: 1%;
+    color: var(--names-tablet);
+
+    &_email,
+    &_date {
+      width: 27%;
+    }
+
+    &_rating {
+      width: 10%;
+    }
+  }
+
+  &__lastHeaderItem {
+    width: auto;
+  }
+
+  &__hr {
+    width: 100%;
+    background-color: var(--background);
+    height: 1px;
+    border: 0;
+  }
+
+  &__pageNum {
+    color: var(--font)
+  }
+
+  &__pageBtns {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__pageBtn {
+    background-color: var(--background);
+    padding: 15px;
+    border-radius: 4px;
+    background-image: url('../../svg/arrow.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+
+    &:hover {
+      background-color: #ededed;
+    }
+
+    &_prev {
+      transform: rotate(-180deg);
+    }
+  }
 }

@@ -7,7 +7,7 @@ function SearchUserMenu() {
     <div className={styles.SearchUserMenu}>
       <Input
         placeholder="Поиск по имени или e-mail"
-        image={null}
+        imageClass="search-bg-img"
         imagePosition="left"
       />
       <ClearFilterBtn />

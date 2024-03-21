@@ -1,7 +1,7 @@
 @import 'variables.css';
 
 * {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   color: var(--text-color);
   font-size: 12px;
   font-weight: 500;
@@ -14,4 +14,8 @@ body {
 .h1 {
   margin: 0;
   font-weight: 700;
+}
+
+.search-bg-img {
+  background-image: url('./svg/search.svg');
 }

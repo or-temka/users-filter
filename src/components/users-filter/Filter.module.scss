@@ -1,0 +1,28 @@
+.Filter {
+  color: var(--names-tablet);
+
+  &__label {
+    color: inherit;
+    margin-right: 8px;
+  }
+
+  &__items {
+    color: inherit;
+    display: inline-flex;
+    column-gap: 9px;
+  }
+
+  &__item {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+
+    &:hover {
+      color: #717171;
+    }
+  }
+
+  &__item_active {
+    color: var(--text-color)
+  }
+}

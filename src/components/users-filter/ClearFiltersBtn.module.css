@@ -1,0 +1,30 @@
+.ClearFiltersBtn {
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 4px;
+     -moz-column-gap: 4px;
+          column-gap: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.ClearFiltersBtn:hover {
+  text-decoration: underline;
+}
+.ClearFiltersBtn__svg {
+  background-image: url("../../svg/clean.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 16px;
+  height: 16px;
+}
+.ClearFiltersBtn__text {
+  color: #4f4f4f;
+}
