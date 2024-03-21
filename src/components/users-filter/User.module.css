@@ -1,0 +1,11 @@
+.User__name {
+  color: var(--username);
+  font-weight: 700;
+}
+.User__data {
+  color: var(--font);
+}
+.User__cross {
+  width: 10px;
+  height: 10px;
+}

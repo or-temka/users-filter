@@ -1,0 +1,10 @@
+.SearchUserMenu {
+  background-color: var(--second-background);
+  border-radius: 7px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  box-shadow: 0px 18px 15px rgba($color: #949494, $alpha: 0.15);
+  margin-bottom: 52px;
+}
