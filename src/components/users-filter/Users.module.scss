@@ -38,8 +38,20 @@
     border: 0;
   }
 
+  &__pageInput {
+    width: 25px;
+  }
+
   &__pageNum {
-    color: var(--font)
+    color: var(--font);
+
+    &_title {
+      margin-right: 5px;
+    }
+
+    &_max {
+      margin-left: 5px;
+    }
   }
 
   &__pageBtns {

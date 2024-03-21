@@ -1,11 +1,20 @@
 import styles from './Input.module.css'
 
-function Input({ placeholder, imageClass, imagePosition }) {
+function Input({
+  placeholder,
+  imageClass,
+  imagePosition,
+  value,
+  className,
+  onChange,
+}) {
   return (
     <input
+      value={value}
       type="text"
-      className={`${styles.Input} ${imageClass} ${
-        imagePosition == 'left' ? styles.Input_imgLeft : styles.Input_imgRight
+      onChange={onChange}
+      className={`${className} ${styles.Input} ${imageClass} ${
+        imagePosition == 'left' ? styles.Input_imgLeft : ''
       }`}
     />
   )

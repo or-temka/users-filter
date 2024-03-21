@@ -41,8 +41,17 @@
   height: 1px;
   border: 0;
 }
+.Users__pageInput {
+  width: 25px;
+}
 .Users__pageNum {
   color: var(--font);
+}
+.Users__pageNum_title {
+  margin-right: 5px;
+}
+.Users__pageNum_max {
+  margin-left: 5px;
 }
 .Users__pageBtns {
   width: 100%;
