@@ -1,0 +1,27 @@
+.DeleteUserPopUp {
+  background-color: var(--second-background);
+  padding: 36px;
+  border-radius: 8px;
+}
+.DeleteUserPopUp__textBox {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.DeleteUserPopUp__text {
+  width: 100%;
+}
+.DeleteUserPopUp__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.DeleteUserPopUp__button_cancel {
+  color: var(--second-background);
+  background-color: var(--username);
+}
+.DeleteUserPopUp__button_cancel:hover {
+  background-color: #0ba7e0;
+}

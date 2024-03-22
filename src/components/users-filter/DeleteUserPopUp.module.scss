@@ -1,0 +1,35 @@
+.DeleteUserPopUp {
+  background-color: var(--second-background);
+  padding: 36px;
+  border-radius: 8px;
+
+  &__textBox {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    width: 100%;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__button {
+    &_confirm {
+      
+    }
+
+    &_cancel {
+      color: var(--second-background);
+      background-color: var(--username);
+
+      &:hover {
+        background-color: #0ba7e0;
+      }
+    }
+  }
+}

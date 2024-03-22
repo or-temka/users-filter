@@ -1,7 +1,16 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import styles from './User.module.css'
+import queryString from 'query-string'
 
-function User({ username, email, registration_date, rating }) {
+function User({ id, username, email, registration_date, rating }) {
+  // create other location params string
+  const locationParams = queryString.parse(useLocation().search)
+  delete locationParams.delete_user_pop_up
+  let locationString = ''
+  for (let key in locationParams) {
+    locationString += '&' + key + '=' + locationParams[key]
+  }
+
   const userRegDate = new Date(registration_date)
 
   return (
@@ -21,7 +30,10 @@ function User({ username, email, registration_date, rating }) {
         <span className={`${styles.User__data} ${styles.User__data_rating}`}>
           {rating}
         </span>
-        <Link className={styles.User__cross}></Link>
+        <Link
+          className={styles.User__cross}
+          to={`?delete_user_pop_up=${id}${locationString}`}
+        ></Link>
       </div>
     </div>
   )

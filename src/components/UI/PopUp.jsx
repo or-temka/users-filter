@@ -1,7 +1,14 @@
+import styles from './PopUp.module.css'
 
-function PopUp() {
+function PopUp({ children, onClickBackground }) {
   return (
-    <div>PopUp</div>
+    <div className={styles.PopUp}>
+      <div
+        className={styles.PopUp__container}
+        onClick={onClickBackground}
+      ></div>
+      <div className={styles.PopUp__content}>{children}</div>
+    </div>
   )
 }
 

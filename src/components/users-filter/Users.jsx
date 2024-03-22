@@ -32,8 +32,6 @@ function Users({ users, setUsers, loading }) {
   // set max and min page
   if (nowPage > maxPages && maxPages != 0) {
     setNowPage(maxPages)
-  } else if (nowPage < 1) {
-    setNowPage(1)
   }
 
   // Sort
@@ -104,6 +102,8 @@ function Users({ users, setUsers, loading }) {
         <div className={styles.Users__allUsersBox}>
           <span className={styles.Users__allUsersText}>Всего: </span>
           <span className={styles.Users__allUsersText}>{users.length}</span>
+          <span className={styles.Users__allUsersText}> (Найдено: </span>
+          <span className={styles.Users__allUsersText}>{tempUsers.length})</span>
         </div>
 
         {/* next, prev page btns */}
