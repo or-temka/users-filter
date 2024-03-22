@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import styles from './ClearFiltersBtn.module.css'
 
-function ClearFiltersBtn({ setUserSearch }) {
+function ClearFiltersBtn({ setSearchValue }) {
   return (
     <Link
       className={styles.ClearFiltersBtn}
+      to=""
       onClick={() => {
-        setUserSearch('')
+        setSearchValue('')
       }}
     >
       <div className={styles.ClearFiltersBtn__svg}></div>

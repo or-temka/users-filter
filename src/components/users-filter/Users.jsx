@@ -1,30 +1,48 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import queryString from 'query-string'
 import User from './User'
 import Input from '../UI/Input'
 import styles from './Users.module.css'
+import sortArrayBy from '../../utils/sortArrayBy'
 
 const MAX_PAGE_USERS = 5
 
-function Users({ users, loading, userSearch }) {
-  let filteredUsers = [...users]
+function Users({ users, setUsers, loading }) {
+  const location = useLocation()
+  const searchParamsAsObject = queryString.parse(location.search)
 
-  if (userSearch) {
-    filteredUsers = [...users].filter(
+  let tempUsers = [...users]
+
+  // input filter users
+  const searchInputText = searchParamsAsObject.search
+  if (searchInputText) {
+    tempUsers = [...users].filter(
       (user) =>
-        user.username.toLowerCase().includes(userSearch.toLowerCase()) ||
-        user.email.toLowerCase().includes(userSearch.toLowerCase())
+        user.username.toLowerCase().includes(searchInputText.toLowerCase()) ||
+        user.email.toLowerCase().includes(searchInputText.toLowerCase())
     )
   }
 
   const [nowPage, setNowPage] = useState(1)
   let maxPageElementsNum = nowPage * MAX_PAGE_USERS
   let minPageElementsNum = maxPageElementsNum - MAX_PAGE_USERS
-  const maxPages = Math.ceil(filteredUsers.length / MAX_PAGE_USERS)
+  const maxPages = Math.ceil(tempUsers.length / MAX_PAGE_USERS)
 
+  // set max and min page
   if (nowPage > maxPages && maxPages != 0) {
     setNowPage(maxPages)
   } else if (nowPage < 1) {
     setNowPage(1)
+  }
+
+  // Sort
+  if (searchParamsAsObject.sort) {
+    tempUsers = sortArrayBy(
+      tempUsers,
+      searchParamsAsObject.sort,
+      searchParamsAsObject.sort_reverse
+    )
   }
 
   return (
@@ -54,14 +72,16 @@ function Users({ users, loading, userSearch }) {
         {loading ? (
           <span className="loader"></span>
         ) : (
-          filteredUsers.map((user, index) => {
+          tempUsers.map((user, index) => {
             if (index >= minPageElementsNum && index < maxPageElementsNum) {
               return <User {...user} key={user.username} />
             }
           })
         )}
       </div>
+      {/* down menu with second information */}
       <div className={styles.Users__pageBtns}>
+        {/* page listener */}
         <div>
           <span
             className={`${styles.Users__pageNum} ${styles.Users__pageNum_title}`}
@@ -80,6 +100,13 @@ function Users({ users, loading, userSearch }) {
           </span>
         </div>
 
+        {/* user count */}
+        <div className={styles.Users__allUsersBox}>
+          <span className={styles.Users__allUsersText}>Всего: </span>
+          <span className={styles.Users__allUsersText}>{users.length}</span>
+        </div>
+
+        {/* next, prev page btns */}
         <div>
           <button
             onClick={() => {

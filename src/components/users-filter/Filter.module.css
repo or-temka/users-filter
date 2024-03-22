@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .Filter {
   color: var(--names-tablet);
 }
@@ -24,4 +25,10 @@
 }
 .Filter__item_active {
   color: var(--text-color);
+}
+.Filter__item_up::after {
+  content: " (вверх)";
+}
+.Filter__item_down::after {
+  content: " (вниз)";
 }
